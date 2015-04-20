@@ -1,0 +1,12 @@
+# cached sources and private datasets
+source/*
+private/*
+
+# created datasets
+UCIMerge_*
+
+# OS stuff
+.DS_Store
+.DS_Store?
+.Spotlight-V100
+.Trashes
