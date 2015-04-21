@@ -18,7 +18,7 @@ UCIMerge requires STATA 13.
 ## Currently Included Datasets
 
 * [Norris 2009](https://sites.google.com/site/pippanorris3/research/data#TOC-Democracy-Time-series-Data-Release-3.0-January-2009)
-* [Freedom House 2014](https://freedomhouse.org/report/freedom-world/freedom-world-2014)
+* [Freedom House 2015](https://freedomhouse.org/report/freedom-world/freedom-world-2015)
 * [Polity IV](http://www.systemicpeace.org/polityproject.html)
 * Polity IV Coups
 * [World Development Indicators](http://data.worldbank.org)
