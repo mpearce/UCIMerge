@@ -116,10 +116,10 @@ program define cache_mergefile
 	args merge
 
 	* Combine merge lists
-	import delimited "UCIMergeList.csv", clear case(preserve) numericcols(1 3) stringcols(2 4)
+	import delimited "UCIMergeList.csv", clear case(preserve) numericcols(1 3 6) stringcols(2 4 5)
 	save `merge', replace
 
-	capture import delimited "private/MyMergeList.csv", clear case(preserve) numericcols(1 3) stringcols(2 4)
+	capture import delimited "private/MyMergeList.csv", clear case(preserve) numericcols(1 3 6) stringcols(2 4 5)
 	if _rc ==0 {
 		append using "`merge'"
 		save `merge', replace
