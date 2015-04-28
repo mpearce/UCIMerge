@@ -3,6 +3,8 @@ UCIMerge is a framework in STATA to standardize the merging of international com
 
 This framework came about from conversations at the [UC Irvine International Comparative Workshop](http://sites.uci.edu/icsw/).
 
+Download the [latest release](https://github.com/mpearce/UCIMerge/releases/latest).
+
 ## How to use UCIMerge
 
 The first time you run the scripts, it will take an extremely long to update the datasets from the web. If you would like to jumpstart this - use this [starter pack](http://mattpearce.name/files/UCIMergeStarterPack.zip); drop these files into the /source directory. If you want to force the system to refresh a dataset, just delete that dataset from /source.
