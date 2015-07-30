@@ -10,8 +10,17 @@ include lib/polity
 include lib/polity_coups
 include lib/norris
 include lib/wdi
+include lib/kof
+include lib/lied
+include lib/ciri
+include lib/qog
+
+* These sets may require manual downlaod. URLS are provided in the DO files.
+* include lib/cnts
+* include lib/pwt
 
 * Use /private to store unreleased datasets or custom transformations
+* include private/univ
 * include private/uia
 include private/mycustomstuff
 

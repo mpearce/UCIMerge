@@ -1,4 +1,5 @@
 drop if year == .
+notes drop _dta
 
 rename UCINumeric country
 label variable country "Country"

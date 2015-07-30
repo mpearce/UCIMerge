@@ -10,7 +10,8 @@ capture program drop prefix
 program define prefix
 	display as text "`0'"
 	foreach i of var * {
-	rename `i' `0'_`i'
+	local name = substr("`i'",1,31-length("`0'"))
+	rename `i' `0'_`name'
 	}
 end
 
@@ -31,7 +32,7 @@ program define merge_with_master
 		save "$FILENAME"
 	}
 	else {
-		merge 1:1 UCINumeric year using "$FILENAME", nogenerate
+		merge 1:1 UCINumeric year using "$FILENAME", nogenerate nonotes
 		save "$FILENAME", replace
 	}
 	check_merge
@@ -40,11 +41,16 @@ end
 * If the file source file doesn't already exist then download and create it.
 capture program drop use_or_import_source_excel
 program define use_or_import_source_excel
-	args PREFIX URL
+	args PREFIX URL SHEET
 	capture confirm file "source/`PREFIX'.dta"
 	if _rc!=0 {
 		noisily display "Importing `PREFIX' from web."
-		import excel "`URL'", firstrow clear
+		if !missing("`SHEET'") {
+			import excel "`URL'", sheet("`SHEET'") firstrow clear
+		}
+		else {
+			import excel "`URL'", firstrow clear
+		}
 		compress
 		save "source/`PREFIX'.dta"
 	}
@@ -62,6 +68,26 @@ program define use_or_import_source
 		use "`URL'", clear
 		compress
 		save "source/`PREFIX'.dta"
+	}
+	else {
+		use "source/`PREFIX'.dta", clear
+	}
+end
+
+* Unix/Linux/Mac only: uses shell command to download if it can't find the source.
+* The Stata 'copy' and 'unzipfile' commands were fragile for this function.
+* If you use a different operating system, you will need to downlaod the source directly.
+capture program drop use_or_import_zipped_source
+program define use_or_import_zipped_source
+	args PREFIX URL
+	capture confirm file "source/`PREFIX'.dta"
+	if _rc!=0 {
+    noisily display "Importing `PREFIX' from web."
+    tempfile dl
+    !curl "`URL'" | funzip > "`dl'"
+  	use "`dl'", clear
+  	compress
+  	save "source/`PREFIX'.dta"
 	}
 	else {
 		use "source/`PREFIX'.dta", clear
@@ -98,16 +124,26 @@ program define merge_ids
 	rename `PREFIX'_`YEARVAR' year
 	rename `PREFIX'_`COUNTRYVAR' `MERGEUSING'
 
-	merge m:1 `MERGEUSING' using `merge', keep(match master) nogenerate
+	merge m:1 `MERGEUSING' using `merge', keep(match master) nogenerate nonotes
 	rename `MERGEUSING' `PREFIX'_`COUNTRYVAR'
 end
 
+* Validates the uniqueness of each id to test sucessful merges
 capture program drop check_merge
 program define check_merge
 	isid UCIName year
 	isid UCIAlpha year
 	isid UCINumeric year
 	isid UCIName UCIAlpha UCINumeric year
+end
+
+* Drops observations where all the variables listed contain missing data
+capture program drop drop_with_all_missing
+program define drop_with_all_missing
+	args checkvars
+	egen check = rownonmiss("`checkvars'")
+	drop if check == 0
+	drop check
 end
 
 * Compiles mergefile from CSV sources
@@ -132,12 +168,12 @@ program define cache_mergefile
 		ssc install labutil
 		labmask UCINumeric, values(UCIName)
 	}
-	merge 1:m UCINumeric using `merge', keep(match ) nogenerate
+	merge 1:m UCINumeric using `merge', keep(match ) nogenerate nonotes
 	compress
 	save "source/merge.dta", replace
 end
 
-* Removes Previous Compiled Dataset
+* Removes previous compiled dataset
 capture rm "$FILENAME"
 
 * Forces compile of merge list with every run

@@ -1,4 +1,6 @@
 * 2013 Polity 4
+* http://www.systemicpeace.org/polity/polity4.htm
+
 local URL "http://www.systemicpeace.org/inscr/p4v2013.xls"
 local PREFIX "polity"
 local YEARVAR "year"

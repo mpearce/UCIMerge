@@ -1,4 +1,6 @@
 * 2013 Polity CSP Coups
+* http://www.systemicpeace.org/inscr/CSPCoupsCodebook2014.pdf
+
 local URL "http://www.systemicpeace.org/inscr/CSPCoupsAnnual2013.xls"
 local PREFIX "polity_coups"
 local YEARVAR "year"
