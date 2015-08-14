@@ -161,6 +161,16 @@ program define cache_mergefile
 		save `merge', replace
 	}
 
+	* Create UCI source
+	import delimited "UCICountries.csv", clear case(preserve)
+	gen SourceNumericCode = UCINumeric
+	rename UCIAlpha SourceCountryCode
+	rename UCIName SourceLongName
+	rename Category Deprecated
+	gen Source = "UCI"
+	append using "`merge'"
+	save `merge', replace
+
 	* Align merge lists with UCI Country Codes and Names
 	import delimited "UCICountries.csv", clear case(preserve)
 	capture labmask UCINumeric, values(UCIName)
@@ -169,6 +179,7 @@ program define cache_mergefile
 		labmask UCINumeric, values(UCIName)
 	}
 	merge 1:m UCINumeric using `merge', keep(match ) nogenerate nonotes
+
 	compress
 	save "source/merge.dta", replace
 end
