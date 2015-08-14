@@ -6,14 +6,14 @@ include lib/begin
 * Uncomment/Comment to inclue/exclude in dataset
 * include lib/source
 include lib/fh
-include lib/polity
-include lib/polity_coups
-include lib/norris
-include lib/wdi
-include lib/kof
-include lib/lied
-include lib/ciri
-include lib/qog
+*include lib/polity
+*include lib/polity_coups
+*include lib/norris
+*include lib/wdi
+*include lib/kof
+*include lib/lied
+*include lib/ciri
+*include lib/qog
 
 * These sets may require manual downlaod. URLS are provided in the DO files.
 * include lib/cnts
