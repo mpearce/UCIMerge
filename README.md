@@ -1,3 +1,5 @@
+[![DOI](https://zenodo.org/badge/3897/mpearce/UCIMerge.svg)](https://zenodo.org/badge/latestdoi/3897/mpearce/UCIMerge)
+
 # UCIMerge - a framework for harmonizing cross national time series data
 
 ## Read Me
@@ -61,4 +63,4 @@ Submit a pull request through github, or email your changes to [pearcem@uci.edu]
 
 If you use this framework, consider citing so that others can find it and contribute.
 
-Pearce, Matthew. 2015. "UCIMerge - a framework for harmonizing cross national time series data." (https://github.com/mpearce/UCIMerge)
+Pearce, Matthew. 2015. "UCIMerge - a framework for harmonizing cross national time series data." (https://github.com/mpearce/UCIMerge) doi:10.5281/zenodo.27933
