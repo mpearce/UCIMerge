@@ -1,6 +1,5 @@
 * Penn World Table version 8.1
 * http://www.rug.nl/research/ggdc/data/pwt/pwt-8.1
-* local URL "http://mattpearce.name/files/pwt81.zip"
 
 local URL "http://www.rug.nl/research/ggdc/data/pwt/v81/pwt81.zip"
 local PREFIX "pwt"
