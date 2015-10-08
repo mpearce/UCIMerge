@@ -5,6 +5,7 @@ rename UCINumeric country
 label variable country "Country"
 label variable year "Year"
 order country year UCI*
+sort country year
 
 compress
 save "$FILENAME", replace
