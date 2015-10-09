@@ -1,12 +1,12 @@
-* Cross National Time Series http://www.databanksinternational.com
-* expects to find private/cnts.xls
+* Cross National Time Series 2015 http://www.databanksinternational.com
+* expects to find private/cnts.xls with the first row as the header
 
 local PREFIX "cnts"
 local URL "private/`PREFIX'.xls"
 local YEARVAR "year"
-local COUNTRYVAR "country"
+local COUNTRYVAR "code"
 local MERGEWITH "CNTS"
-local MERGEUSING "Name"
+local MERGEUSING "Numeric"
 
 tempfile merge
 prep_mergefile `MERGEWITH' `MERGEUSING' `merge'
@@ -14,9 +14,6 @@ prep_mergefile `MERGEWITH' `MERGEUSING' `merge'
 use_or_import_source_excel `PREFIX' `URL'
 
 destring code, replace
-
-* Fix a typo
-replace country = "PERU" if code == 930 & year == 2010
 
 prefix `PREFIX'
 

@@ -16,8 +16,8 @@ include lib/ciri
 include lib/qog
 
 * These sets may require manual downlaod. URLS are provided in the DO files.
-include lib/cnts
-include lib/pwt
+* include lib/cnts
+* include lib/pwt
 
 * Use /private to store unreleased datasets or custom transformations
 * include private/univ
