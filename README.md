@@ -29,7 +29,6 @@ UCIMerge requires STATA 13. The .csv files which link countries across datasets 
 * Polity IV Coups
 * [World Development Indicators](http://data.worldbank.org)
 * [KOF Index of Globalization](http://globalization.kof.ethz.ch)
-include lib/lied
 * [The Lexical Index of Electoral Democracy (LIED)](http://ps.au.dk/forskning/forskningsprojekter/dedere/datasets/)
 * [CIRI Human Rights Dataset](http://www.humanrightsdata.com)
 * [Quality of Government Standard dataset](http://qog.pol.gu.se/data/datadownloads/qogstandarddata)
