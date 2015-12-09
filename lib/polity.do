@@ -1,7 +1,7 @@
-* 2013 Polity 4
+* 2014 Polity 4
 * http://www.systemicpeace.org/polity/polity4.htm
 
-local URL "http://www.systemicpeace.org/inscr/p4v2013.xls"
+local URL "http://www.systemicpeace.org/inscr/p4v2014.xls"
 local PREFIX "polity"
 local YEARVAR "year"
 local COUNTRYVAR "ccode"
