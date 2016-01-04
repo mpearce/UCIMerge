@@ -11,7 +11,7 @@ Download the [latest release](https://github.com/mpearce/UCIMerge/releases/lates
 
 ## How to use UCIMerge
 
-The first time you run the scripts, it will take an extremely long to update the datasets from the web. If you would like to jumpstart this, you can use this [starter pack](http://mattpearce.name/files/UCIMergeStarterPack.zip) by drop these files into the /source directory. If you want to force the system to refresh a dataset, just delete that dataset file from /source.
+The first time you run the scripts, it will take an extremely long time to update the datasets from the web. If you would like to jumpstart this, you can use this [starter pack](http://mattpearce.name/files/UCIMergeStarterPack.zip) by drop these files into the /source directory. If you want to force the system to refresh a dataset, just delete that dataset file from /source.
 
 1. Set the UCIMerge folder as the working directory for STATA ('cd ~/UCIMerge')
 
@@ -29,7 +29,6 @@ UCIMerge requires STATA 13. The .csv files which link countries across datasets 
 * Polity IV Coups
 * [World Development Indicators](http://data.worldbank.org)
 * [KOF Index of Globalization](http://globalization.kof.ethz.ch)
-include lib/lied
 * [The Lexical Index of Electoral Democracy (LIED)](http://ps.au.dk/forskning/forskningsprojekter/dedere/datasets/)
 * [CIRI Human Rights Dataset](http://www.humanrightsdata.com)
 * [Quality of Government Standard dataset](http://qog.pol.gu.se/data/datadownloads/qogstandarddata)
@@ -52,7 +51,7 @@ Intuitive directory structures and naming conventions means writing less code!
 * **/private** - Location for your customized functions, datasets and MergeLists for datasets that are not part of the core UCIMerge project.
 
 ## About Contributions
-Please contribute! If you discover an error, please submit an issue or send a fix.
+Please contribute! If you discover an error, please submit an issue on github or send a fix.
 
 To contribute a new dataset:
 * create a new merge .do file in the /lib directory. The fh.do is a well documented template.
