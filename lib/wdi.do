@@ -14,7 +14,7 @@ prep_mergefile `MERGEWITH' `MERGEUSING' `merge'
 capture confirm file "source/`PREFIX'.dta"
 if _rc!=0 {
   noisily display "Importing `PREFIX' from web."
-  set timeout1 180
+  set timeout1 360
   set timeout2 1540
   capture wbopendata, language(en - English) topics(1) clear long
   if _rc!=0 {
