@@ -1,7 +1,8 @@
-* 2015 Quality of Government Standard dataset 2015 - Time-Series
+* 2016 Quality of Government Standard dataset 2016 - Time-Series
 * http://qog.pol.gu.se/data/datadownloads/qogstandarddata
+* Teorell, Jan, Stefan Dahlberg, Sören Holmberg, Bo Rothstein, Anna Khomenko & Richard Svensson. 2016. The Quality of Government Standard Dataset, version Jan16. University of Gothenburg: The Quality of Government Institute, http://www.qog.pol.gu.se doi:10.18157/QoGStdJan16
 
-local URL "http://www.qogdata.pol.gu.se/data/qog_std_ts_jan15.dta"
+local URL "http://www.qogdata.pol.gu.se/data/qog_std_ts_jan16.dta"
 local PREFIX "qog"
 local YEARVAR "year"
 local COUNTRYVAR "ccode"
@@ -19,12 +20,6 @@ ds ccode cname year ccodealp cname_year ccodealp_year ccodecow ccodewb version, 
 egen _tmp = rownonmiss(`r(varlist)'), s
 drop if _tmp == 0
 drop _tmp
-
-* Trim longer names to survive prefixing
-rename *_demo_* *_d_*
-rename *_mlexpecedu_* *_mled_*
-rename *_taxrate_* *tax*
-rename *hlth* *hl*
 
 prefix `PREFIX'
 merge_ids `PREFIX' `YEARVAR' `COUNTRYVAR' `MERGEUSING' `merge'
