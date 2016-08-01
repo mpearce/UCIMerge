@@ -1,7 +1,7 @@
 * Norris Democracy Timeseries Data Release 3.0, January 2009
 * http://www.hks.harvard.edu/fs/pnorris/Data/Data.htm
 
-local URL "http://www.hks.harvard.edu/fs/pnorris/Data/Democracy%20TimeSeries%20Data/Democracy_TimeSeries_Data_January2009_StataSE.dta"
+local URL "https://www.hks.harvard.edu/fs/pnorris/Data/Democracy%20TimeSeries%20Data/Democracy_TimeSeries_Data_January2009_StataSE.dta"
 local PREFIX "norris"
 local YEARVAR "Year"
 local COUNTRYVAR "Refno"
