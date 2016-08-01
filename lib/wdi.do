@@ -1,4 +1,4 @@
-* 2015 World Develoment Indicators
+* 2016 World Develoment Indicators
 * http://data.worldbank.org/
 
 local PREFIX "wdi"
@@ -11,28 +11,35 @@ tempfile merge
 prep_mergefile `MERGEWITH' `MERGEUSING' `merge'
 
 * If the file source file doesn't already exist then download and create it.
-capture confirm file "source/`PREFIX'.dta"
+capture use "source/`PREFIX'.dta", clear
 if _rc!=0 {
   noisily display "Importing `PREFIX' from web."
-  set timeout1 360
-  set timeout2 1540
-  capture wbopendata, language(en - English) topics(1) clear long
-  if _rc!=0 {
-    ssc install wbopendata
-    wbopendata, language(en - English) topics(1) clear long
-  }
+  * set timeout1 360
+  * set timeout2 1540
+  * Make sure you are using the latest wbopendata update, it will save you headache.
+  ssc install wbopendata
   tempfile wdi
   save `wdi', replace
-  foreach x of numlist 2/21 {
-    wbopendata, language(en - English) topics(`x') clear long
-    compress
-    merge 1:1 countryname year using `wdi', nogenerate
+  * Topic 18 doesn't seem to be returning
+  foreach x of numlist 1/17 19/21 {
+    capture use "source/`PREFIX'`x'.dta"
+    if _rc!=0 {
+      wbopendata, language(en - English) topics(`x') clear long
+      save "source/`PREFIX'`x'.dta"
+    }
+    if `x' != 1 {
+      merge 1:1 countryname year using `wdi', nogenerate
+      }
     save `wdi', replace
   }
+  compress
   save "source/`PREFIX'.dta"
-}
-else {
-  use "source/`PREFIX'.dta", clear
+
+  * Cleanup redundant cache files
+  foreach x of numlist 1/17 19/21 {
+    capture rm "source/`PREFIX'`x'.dta"
+  }
+
 }
 
 * Fixes:
