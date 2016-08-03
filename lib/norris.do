@@ -23,6 +23,7 @@ This merge uses Refno accounting for the inconsistencies below. Refno may be not
 * Refno 65, Year: 1971 - Likely Ghana
 * Refno 87, Year: 1971 - Likely Kenya
 * Refno 46,84,85 have missing Natcode, but not inconsistent
+* Refno 90, Year: 2005,2006 - North/South Korea inconsistent
 */
 
 prefix `PREFIX'

@@ -2227,7 +2227,6 @@ UCINumeric,SourceCountryCode,SourceNumericCode,SourceLongName,Source,Deprecated
 341,MNE,499,Montenegro,QOG,0
 343,MKD,807,Macedonia,QOG,0
 344,HRV,191,Croatia,QOG,0
-345,SCG,891,Serbia and Montenegro,QOG,0
 345,YUG,890,Yugoslavia,QOG,0
 346,BIH,70,Bosnia and Herzegovina,QOG,0
 349,SVN,705,Slovenia,QOG,0
@@ -2237,8 +2236,8 @@ UCINumeric,SourceCountryCode,SourceNumericCode,SourceLongName,Source,Deprecated
 355,BGR,100,Bulgaria,QOG,0
 359,MDA,498,Moldova,QOG,0
 360,ROU,642,Romania,QOG,0
+364,SUN,810,USSR,QOG,0
 365,RUS,643,Russia,QOG,0
-365,SUN,810,USSR,QOG,0
 366,EST,233,Estonia,QOG,0
 367,LVA,428,Latvia,QOG,0
 368,LTU,440,Lithuania,QOG,0
@@ -2373,6 +2372,7 @@ UCINumeric,SourceCountryCode,SourceNumericCode,SourceLongName,Source,Deprecated
 986,PLW,585,Palau,QOG,0
 987,FSM,583,Micronesia,QOG,0
 990,WSM,882,Samoa,QOG,0
+1290,SCG,891,Serbia and Montenegro,QOG,0
 1292,SRB,688,Serbia,QOG,0
 2,USA,,United States of America,WDI,0
 20,CAN,,Canada,WDI,0
