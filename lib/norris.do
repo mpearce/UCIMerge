@@ -26,6 +26,7 @@ This merge uses Refno accounting for the inconsistencies below. Refno may be not
 */
 
 prefix `PREFIX'
+prefix_var_labels `PREFIX'
 merge_ids `PREFIX' `YEARVAR' `COUNTRYVAR' `MERGEUSING' `merge'
 
 duplicates drop UCINumeric year, force

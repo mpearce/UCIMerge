@@ -24,7 +24,7 @@ UCIMerge requires STATA 13. The .csv files which link countries across datasets 
 ## Currently Supported Datasets
 
 * [Norris 2009](https://sites.google.com/site/pippanorris3/research/data#TOC-Democracy-Time-series-Data-Release-3.0-January-2009)
-* [Freedom House 2015](https://freedomhouse.org/report/freedom-world/freedom-world-2015)
+* [Freedom House 2016](https://freedomhouse.org/report/freedom-world/freedom-world-2015)
 * [Polity IV](http://www.systemicpeace.org/polityproject.html)
 * Polity IV Coups
 * [World Development Indicators](http://data.worldbank.org)
@@ -32,8 +32,10 @@ UCIMerge requires STATA 13. The .csv files which link countries across datasets 
 * [The Lexical Index of Electoral Democracy (LIED)](http://ps.au.dk/forskning/forskningsprojekter/dedere/datasets/)
 * [CIRI Human Rights Dataset](http://www.humanrightsdata.com)
 * [Quality of Government Standard dataset](http://qog.pol.gu.se/data/datadownloads/qogstandarddata)
-* [Cross National Time Series](http://www.databanksinternational.com)
+* [Cross National Time Series](http://www.cntsdata.com)
 * [Penn World Table version 8.1](http://www.rug.nl/research/ggdc/data/pwt/pwt-8.1)
+
+You can add your own datasets by using one of these examples as a template.
 
 ## Structure and Philosophy
 
@@ -54,7 +56,7 @@ Intuitive directory structures and naming conventions means writing less code!
 Please contribute! If you discover an error, please submit an issue on github or send a fix.
 
 To contribute a new dataset:
-* create a new merge .do file in the /lib directory. The fh.do is a well documented template.
+* create a new merge .do file in the /lib directory. The polity.do is a well documented template.
 * include the file in Master.do file
 * update the UCIMergeList.csv with the new country code entries. Sort the merge list by the Source and UCINumeric fields.
 

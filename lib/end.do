@@ -1,5 +1,6 @@
 drop if year == .
 notes drop _dta
+label data
 
 rename UCINumeric country
 gen UCINumeric = country

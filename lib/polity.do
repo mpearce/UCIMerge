@@ -1,11 +1,17 @@
 * 2015 Polity 4
 * http://www.systemicpeace.org/polity/polity4.htm
 
+* If no cached file in source/ go here:
 local URL "http://www.systemicpeace.org/inscr/p4v2015.xls"
+* Prefix this source's variables with:
 local PREFIX "polity"
+* What is the year variable called in the source:
 local YEARVAR "year"
+* What is the country variable called in the source:
 local COUNTRYVAR "ccode"
+* Which set of ids are used, matching "source" field in UCIMergeList:
 local MERGEWITH "Polity"
+* Which field in UCIMergelist matches the country variable above (Name, Alpha or Numeric):
 local MERGEUSING "Numeric"
 
 tempfile merge

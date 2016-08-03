@@ -20,8 +20,10 @@ ds ccode cname year ccodealp cname_year ccodealp_year ccodecow ccodewb version, 
 egen _tmp = rownonmiss(`r(varlist)'), s
 drop if _tmp == 0
 drop _tmp
+label data
 
 prefix `PREFIX'
+prefix_var_labels `PREFIX'
 merge_ids `PREFIX' `YEARVAR' `COUNTRYVAR' `MERGEUSING' `merge'
 
 * Merge with the Dataset

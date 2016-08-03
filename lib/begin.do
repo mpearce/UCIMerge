@@ -15,6 +15,22 @@ program define prefix
 	}
 end
 
+* Rename value labels
+capture program drop prefix_var_labels
+program define prefix_var_labels
+	display as text "`0'"
+	ds, has(vallabel)
+	local vars `r(varlist)'
+	foreach var of local vars {
+		local labname : value label `var'
+		label copy `labname' `0'_`labname', replace
+		label value `var' `0'_`labname'
+	}
+	labelbook, problems
+	la drop `r(notused)'
+end
+
+
 * Convenience method to create value lables from string variables
 capture program drop encode_value_labels
 program define encode_value_labels
@@ -58,6 +74,23 @@ program define use_or_import_source_excel
 		use "source/`PREFIX'.dta", clear
 	}
 end
+
+
+capture program drop use_or_import_source_csv
+program define use_or_import_source_csv
+	args PREFIX URL
+	capture confirm file "source/`PREFIX'.dta"
+	if _rc!=0 {
+		noisily display "Importing `PREFIX' from web."
+		import delimited "`URL'", case(preserve) clear
+		compress
+		save "source/`PREFIX'.dta"
+	}
+	else {
+		use "source/`PREFIX'.dta", clear
+	}
+end
+
 
 capture program drop use_or_import_source
 program define use_or_import_source
