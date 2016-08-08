@@ -26,3 +26,4 @@ include private/mycustomstuff
 
 * Complete the merge:
 include lib/end
+beep
